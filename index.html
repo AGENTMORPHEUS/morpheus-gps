@@ -148,7 +148,7 @@ window.onload = function() {
   //document.getElementById("distance-feedback").style.height = "100%";
   navigator.geolocation.getCurrentPosition(updateDistance, updateError, options);
   const id = navigator.geolocation.watchPosition(updateDistance, updateError, options);
-  alert("Error. You must enable GPS location for this browser"); 
+  //alert("Error. You must enable GPS location for this browser"); 
 };
 </script>
 </head>
