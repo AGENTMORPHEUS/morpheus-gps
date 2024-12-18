@@ -150,6 +150,10 @@ window.onload = function() {
   navigator.geolocation.getCurrentPosition(updateDistance, updateError, options);
   const id = navigator.geolocation.watchPosition(updateDistance, updateError, options);
 };
+function displayMessage(message) {
+	document.getElementById("error-feedback").textContent = message;
+}
+	displayMessage("Error. You must enable GPS location for this browser");
 </script>
 </head>
 <body>
