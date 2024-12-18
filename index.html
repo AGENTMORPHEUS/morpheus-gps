@@ -33,7 +33,7 @@ html, body {
   //border-style: solid;
   //border-color: blue;
   grid-column: 1;
-  grid-row: 2;
+  grid-row: 1;
   font-size: 20vw;
   display: flex;
   justify-content: center;
@@ -43,16 +43,7 @@ html, body {
   //border-style: solid;
   //border-color: blue;
   grid-column: 1;
-  grid-row: 1;
-}
-#messageDiv {
-  	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	background-color: #f0f0f0;
-	padding: 10px;
-	text-align: center;
+  grid-row: 2;
 }
 img {
 	max-width: 100%;
@@ -159,20 +150,17 @@ window.onload = function() {
   navigator.geolocation.getCurrentPosition(updateDistance, updateError, options);
   const id = navigator.geolocation.watchPosition(updateDistance, updateError, options);
 };
-function displayMessage(message) {
-	document.getElementById("messageDiv").textContent = message;
-}
-	displayMessage("Error. You must enable GPS location for this browser");
+
 </script>
 </head>
 <body>
 <img id='success-image' src="https://www.petertheobald.com/downloads/1x1white.png">
 <div class="wrapper">
+<div id="error-feedback">
+  </div>
   <div id="distance-feedback">
   ( )
  </div>
- <div id="error-feedback">
-  </div>
 </div>
 <audio id="success-audio" src="https://www.petertheobald.com/downloads/ta-da.mp3" preload="auto"></audio>
 </body>
