@@ -137,6 +137,7 @@ function updateDistance(position) {
 }
 function updateError(error) {
   document.getElementById("error-feedback").innerHTML = '(Error. You must enable GPS location for this browser)';
+	alert("You must enable GPS location for this browser");
 }
 
 window.onload = function() {
