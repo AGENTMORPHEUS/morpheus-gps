@@ -137,7 +137,6 @@ function updateDistance(position) {
 }
 function updateError(error) {
   document.getElementById("error-feedback").innerHTML = '(Error. You must enable GPS location for this browser)';
-	alert("You must enable GPS location for this browser");
 }
 
 window.onload = function() {
@@ -151,14 +150,15 @@ window.onload = function() {
 </script>
 </head>
 <body>
+<h1 id="error-feedback"></h1>
 <img id='success-image' src="https://www.petertheobald.com/downloads/1x1white.png">
 <div class="wrapper">
   <div id="distance-feedback">
   ( )
  </div>
-<div id="error-feedback">
-  </div>
-</div>
+//<div id="error-feedback">
+  //</div>
+//</div>
 <audio id="success-audio" src="https://www.petertheobald.com/downloads/ta-da.mp3" preload="auto"></audio>
 </body>
 </html>
