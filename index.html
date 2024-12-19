@@ -29,19 +29,6 @@ html, body {
   justify-content: center;
   align-items: center;
 }
-	div#banner { 
-       position: absolute; 
-       top: 0; 
-       left: 0; 
-       background-color: #DDEEEE; 
-       width: 100%; 
-     }
-     div#banner-content { 
-       width: 800px; 
-       margin: 0 auto; 
-       padding: 10px; 
-       border: 1px solid #000;
-     }
 #distance-feedback {
   //border-style: solid;
   //border-color: blue;
@@ -148,9 +135,9 @@ function updateDistance(position) {
 		document.getElementById("distance-feedback").innerHTML = ' ' + dist.toLocaleString(undefined, {maximumFractionDigits: 0}) + ' ';
 	}
 }
-//function updateError(error) {
-//  document.getElementById("error-feedback").innerHTML = '(Error. You must enable GPS location for this browser)';
-//}
+function updateError(error) {
+  document.getElementById("error-feedback").innerHTML = '(Error. You must enable GPS location for this browser)';
+}
 
 window.onload = function() {
   // do something when the page loads
