@@ -147,8 +147,7 @@ window.onload = function() {
   document.getElementById("distance-feedback").style.width = "100%";
   document.getElementById("distance-feedback").style.height = "100%";
   navigator.geolocation.getCurrentPosition(updateDistance, updateError, options);
-  //const id = navigator.geolocation.watchPosition(updateDistance, updateError, options);
-  const id = navigator.geolocation.getCurrentPosition(updateDistance, updateError, options);
+  const id = navigator.geolocation.watchPosition(updateDistance, updateError, options);
 };
 
 </script>
