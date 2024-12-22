@@ -6,7 +6,6 @@
      Then display a success image and text.
 -->
 <head>
-
 <style>
 *{
   box-sizing: border-box;
@@ -43,7 +42,7 @@ html, body {
   //border-style: solid;
   //border-color: blue;
   grid-column: 1;
-  grid-row: 1;
+  grid-row: 2;
 }
 img {
 	max-width: 100%;
@@ -70,21 +69,22 @@ div {
 }
 
 */
-
 </style>
 <script>
+
+// Example: San Francisco Yoda statue outside Lucasfilm
 // Mailbox - Chester Springs.
-targetLat='40.08583';
-targetLong='-75.68761';
+targetLat='40.0858378';
+targetLong='-75.6877827';
 successImage='https://upload.wikimedia.org/wikipedia/en/f/ff/SuccessKid.jpg';
-targetSize = 5; // distance in feet to target for success
+targetSize = 10; // distance in feet to target for success
 
 // if demoMode is true, ignore the configured target location
 // and pick a target approx. 300 feet East of the player's
 // starting position.
 // (assuming lat. 37.8 N, further or closer at different latitudes)
-//demoMode = true;
-//demoModeDistance = 0.0003; // approx. 300 feet East at 38N
+demoMode = true;
+demoModeDistance = 0.0003; // approx. 300 feet East at 38N
 
 const options = {
   enableHighAccuracy: true,
@@ -119,11 +119,11 @@ function updateDistance(position) {
   if (found) {
     return;
 	}
-  //if (demoMode) {
-//	targetLat = position.coords.latitude;
-//	targetLong = position.coords.longitude + demoModeDistance; // approx. 300 feet East at 38N
-//	demoMode = false;
- // }
+  if (demoMode) {
+	targetLat = position.coords.latitude;
+	targetLong = position.coords.longitude + demoModeDistance; // approx. 300 feet East at 38N
+	demoMode = false;
+  }
   dist=distance(targetLat, targetLong, position.coords.latitude, position.coords.longitude, 'f');
   console.log(targetLat, targetLong, position.coords.latitude, position.coords.longitude, 'f', dist.toLocaleString(undefined, {maximumFractionDigits: 0}))
   //dist=3; // DEBUG
@@ -137,17 +137,15 @@ function updateDistance(position) {
 	}
 }
 function updateError(error) {
-  document.getElementById("error-feedback").innerHTML = 'Error. You must enable GPS location for this browser';
+  document.getElementById("error-feedback").innerHTML = '(Error. You must enable GPS location for this browser)';
 }
-
 window.onload = function() {
   // do something when the page loads
-  document.getElementById("distance-feedback").style.width = "100%";
-  document.getElementById("distance-feedback").style.height = "100%";
+  //document.getElementById("distance-feedback").style.width = "100%";
+  //document.getElementById("distance-feedback").style.height = "100%";
   navigator.geolocation.getCurrentPosition(updateDistance, updateError, options);
   const id = navigator.geolocation.watchPosition(updateDistance, updateError, options);
 };
-
 </script>
 </head>
 <body>
@@ -155,9 +153,9 @@ window.onload = function() {
 <div class="wrapper">
   <div id="distance-feedback">
   ( )
- </div>
-<div id="error-feedback">
- </div>
+  </div>
+  <div id="error-feedback">
+  </div>
 </div>
 <audio id="success-audio" src="https://www.petertheobald.com/downloads/ta-da.mp3" preload="auto"></audio>
 </body>
