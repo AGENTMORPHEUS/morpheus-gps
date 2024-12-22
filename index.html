@@ -119,11 +119,11 @@ function updateDistance(position) {
   if (found) {
     return;
 	}
-  if (demoMode) {
-	targetLat = position.coords.latitude;
-	targetLong = position.coords.longitude //+ demoModeDistance; // approx. 300 feet East at 38N
-	//demoMode = false;
-  }
+  //if (demoMode) {
+//	targetLat = position.coords.latitude;
+//	targetLong = position.coords.longitude //+ demoModeDistance; // approx. 300 feet East at 38N
+//	//demoMode = false;
+  //}
   dist=distance(targetLat, targetLong, position.coords.latitude, position.coords.longitude, 'f');
   console.log(targetLat, targetLong, position.coords.latitude, position.coords.longitude, 'f', dist.toLocaleString(undefined, {maximumFractionDigits: 0}))
   //dist=3; // DEBUG
