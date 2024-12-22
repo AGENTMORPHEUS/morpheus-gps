@@ -83,8 +83,8 @@ targetSize = 10; // distance in feet to target for success
 // and pick a target approx. 300 feet East of the player's
 // starting position.
 // (assuming lat. 37.8 N, further or closer at different latitudes)
-demoMode = true;
-demoModeDistance = 0.0003; // approx. 300 feet East at 38N
+demoMode = false;
+//demoModeDistance = 0.0003; // approx. 300 feet East at 38N
 
 const options = {
   enableHighAccuracy: true,
@@ -121,7 +121,7 @@ function updateDistance(position) {
 	}
   if (demoMode) {
 	targetLat = position.coords.latitude;
-	targetLong = position.coords.longitude + demoModeDistance; // approx. 300 feet East at 38N
+	targetLong = position.coords.longitude //+ demoModeDistance; // approx. 300 feet East at 38N
 	demoMode = false;
   }
   dist=distance(targetLat, targetLong, position.coords.latitude, position.coords.longitude, 'f');
