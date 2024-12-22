@@ -75,9 +75,9 @@ div {
 // Example: San Francisco Yoda statue outside Lucasfilm
 // Mailbox - Chester Springs.
 targetLat='40.0858378';
-targetLong='-75.6877827';
+targetLong='-75.687568';
 successImage='https://upload.wikimedia.org/wikipedia/en/f/ff/SuccessKid.jpg';
-targetSize = 10; // distance in feet to target for success
+targetSize = 5; // distance in feet to target for success
 
 // if demoMode is true, ignore the configured target location
 // and pick a target approx. 300 feet East of the player's
@@ -122,7 +122,7 @@ function updateDistance(position) {
   if (demoMode) {
 	targetLat = position.coords.latitude;
 	targetLong = position.coords.longitude //+ demoModeDistance; // approx. 300 feet East at 38N
-	demoMode = false;
+	//demoMode = false;
   }
   dist=distance(targetLat, targetLong, position.coords.latitude, position.coords.longitude, 'f');
   console.log(targetLat, targetLong, position.coords.latitude, position.coords.longitude, 'f', dist.toLocaleString(undefined, {maximumFractionDigits: 0}))
